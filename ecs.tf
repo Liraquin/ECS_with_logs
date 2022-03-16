@@ -94,13 +94,13 @@ resource "aws_ecs_task_definition" "web" {
           endpoint = "https://log-api.newrelic.com/log/v1"
         },
         secretOptions = [
-          { name = "apiKey", valueFrom = "arn:aws:ssm:us-east-1:050978480733:parameter/YOURCOMPANY/dev/newrelic/licenseKey" }
+          { name = "apiKey", valueFrom = "arn:aws:ssm:us-east-1:AWS_ACC_CODE:parameter/YOURCOMPANY/dev/newrelic/licenseKey" }
         ],
       }
     },
     {
       name      = "log_router"
-      image     = "050978480733.dkr.ecr.us-east-1.amazonaws.com/newrelic/logging-firelens-fluentbit"
+      image     = "AWS_ACC_CODE.dkr.ecr.us-east-1.amazonaws.com/newrelic/logging-firelens-fluentbit"
       essential = true
       firelensConfiguration = {
         type = "fluentbit",
