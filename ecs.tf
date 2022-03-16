@@ -94,7 +94,7 @@ resource "aws_ecs_task_definition" "web" {
           endpoint = "https://log-api.newrelic.com/log/v1"
         },
         secretOptions = [
-          { name = "apiKey", valueFrom = "arn:aws:ssm:us-east-1:050978480733:parameter/jamesdelivery/dev/newrelic/licenseKey" }
+          { name = "apiKey", valueFrom = "arn:aws:ssm:us-east-1:050978480733:parameter/YOURCOMPANY/dev/newrelic/licenseKey" }
         ],
       }
     },
@@ -143,7 +143,7 @@ resource "aws_lb_listener_rule" "static" {
 
   condition {
     host_header {
-      values = ["${var.app_name_host}.dev.james.delivery"]
+      values = ["${var.app_name_host}.dev.YOURCOMPANY"]
     }
   }
 }
